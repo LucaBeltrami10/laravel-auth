@@ -23,7 +23,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.projects.create');
     }
 
     /**
@@ -31,15 +31,28 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $data = $request->all();
+        /* dd($request->all()); */
+        /* $project = Project::create([
+            'project_name' => $data['project_name'],
+            'description' => $data['description'],
+            'language_used' => $data['language_used'],
+            'framework_used' => $data['framework_used'],
+            'status' => $data['status'],
+            'repository_url' => $data['repository_url'],
+        ]); */
+        $project = Project::create($data);
+
+        return redirect()->route('admin.projects.show', $project->id);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Project $project)
     {
-        //
+        return view('admin.projects.show', compact('project'));
     }
 
     /**
