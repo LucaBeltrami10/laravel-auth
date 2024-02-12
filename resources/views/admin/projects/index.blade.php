@@ -5,6 +5,9 @@
 @section('content')
 
 <div class="container">
+  <div class="w-100 d-flex justify-content-end">
+    <button type="button" class="btn btn-primary">Aggiungi</button>
+</div>
     <table class="table">
         <thead>
           <tr>
@@ -20,7 +23,7 @@
         <tbody>
           @foreach ($projects as $project)
           <tr>
-            <th scope="row">{{ $project->id }}</th>
+            <th scope="row"><a href="{{ route('admin.projects.show', $project->id) }}">{{ $project->id }}</a></th>
             <td>{{ $project->project_name }}</td>
             <td>{{ $project->language_used }}</td>
             <td>{{ $project->framework_used }}</td>
