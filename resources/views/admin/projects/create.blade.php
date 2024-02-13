@@ -24,11 +24,15 @@
             <label for="framework_used" class="form-label">Frameword utilizzati</label>
             <input type="text" class="form-control" id="framework_used" name="framework_used">
         </div>
-        <div class="mb-3">
+        {{-- <div class="mb-3">
             <label class="form-label" for="status" >Status</label>
             <input type="text" class="form-control" id="status" name="status">
             
-          </div>
+          </div> --}}
+        <div class="mb-3">
+            <label for="status" class="form-check-label">Status</label>
+            <input type="checkbox" name="status" id="status" class="form-check-inline">
+        </div>
         <div class="mb-3">
             <label for="repository_url" class="form-label">Url Repository</label>
             <input type="text" class="form-control" id="repository_url" name="repository_url">
@@ -39,21 +43,3 @@
 </div>
 
 @endsection
-
-
-<form>
-    <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">Email address</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-    </div>
-    <div class="mb-3">
-      <label for="exampleInputPassword1" class="form-label">Password</label>
-      <input type="password" class="form-control" id="exampleInputPassword1">
-    </div>
-    <div class="mb-3 form-check">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-      <label class="form-check-label" for="exampleCheck1">Check me out</label>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>

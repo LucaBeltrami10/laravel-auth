@@ -6,7 +6,9 @@
 
 <div class="container">
   <div class="w-100 d-flex justify-content-end">
-    <button type="button" class="btn btn-primary">Aggiungi</button>
+    <a href="{{ route('admin.projects.create') }}">
+      <button type="button" class="btn btn-primary">Aggiungi</button>
+    </a>
 </div>
     <table class="table">
         <thead>
@@ -24,7 +26,7 @@
           @foreach ($projects as $project)
           <tr>
             <th scope="row"><a href="{{ route('admin.projects.show', $project->id) }}">{{ $project->id }}</a></th>
-            <td>{{ $project->project_name }}</td>
+            <td><a href="{{ route('admin.projects.show', $project->id) }}">{{ $project->project_name }}</a></td>
             <td>{{ $project->language_used }}</td>
             <td>{{ $project->framework_used }}</td>
             <td>{{ $project->status }}</td>
