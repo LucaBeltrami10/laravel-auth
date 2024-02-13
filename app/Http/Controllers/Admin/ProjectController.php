@@ -33,6 +33,8 @@ class ProjectController extends Controller
     {
 
         $data = $request->all();
+        $data['status'] == 'on' ? $data['status'] = 1 : $data['status'] = 0;
+
         /* dd($request->all()); */
         /* $project = Project::create([
             'project_name' => $data['project_name'],
@@ -58,9 +60,9 @@ class ProjectController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Project $project)
     {
-        //
+        return view('admin.projects.edit', compact('project'));
     }
 
     /**
@@ -68,7 +70,6 @@ class ProjectController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
     }
 
     /**
