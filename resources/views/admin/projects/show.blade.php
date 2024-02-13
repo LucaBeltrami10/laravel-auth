@@ -6,7 +6,9 @@
 
 <div class="container">
     <div class="w-100">
+      <a href="{{ route('admin.projects.edit', $project->id) }}">
         <button type="button" class="btn btn-success">Modifica</button>
+      </a>
     </div>
     <table class="table">
         <thead>
