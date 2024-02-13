@@ -33,8 +33,6 @@ class ProjectController extends Controller
     {
         $data = $request->all();
         $data['status'] = isset($data['status']);
-        /* dd($data); */
-
         $project = Project::create($data);
 
         return redirect()->route('admin.projects.show', $project->id);
@@ -63,7 +61,6 @@ class ProjectController extends Controller
     {
         $data = $request->all();
         $data['status'] = isset($data['status']);
-        dd($data);
         $project->update($data);
 
         return redirect()->route('admin.projects.show', $project);
@@ -72,8 +69,10 @@ class ProjectController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Project $project)
     {
-        //
+        $project->delete();
+
+        return redirect()->route('admin.projects.index');
     }
 }
