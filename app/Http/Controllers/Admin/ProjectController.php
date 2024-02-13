@@ -31,19 +31,10 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-
         $data = $request->all();
-        $data['status'] == 'on' ? $data['status'] = 1 : $data['status'] = 0;
+        $data['status'] = isset($data['status']);
+        /* dd($data); */
 
-        /* dd($request->all()); */
-        /* $project = Project::create([
-            'project_name' => $data['project_name'],
-            'description' => $data['description'],
-            'language_used' => $data['language_used'],
-            'framework_used' => $data['framework_used'],
-            'status' => $data['status'],
-            'repository_url' => $data['repository_url'],
-        ]); */
         $project = Project::create($data);
 
         return redirect()->route('admin.projects.show', $project->id);
@@ -68,8 +59,14 @@ class ProjectController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Project $project)
     {
+        $data = $request->all();
+        $data['status'] = isset($data['status']);
+        dd($data);
+        $project->update($data);
+
+        return redirect()->route('admin.projects.show', $project);
     }
 
     /**
