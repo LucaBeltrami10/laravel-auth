@@ -75,4 +75,14 @@ class ProjectController extends Controller
 
         return redirect()->route('admin.projects.index');
     }
+
+    /**
+     * Display a listing of the deleted resource.
+     */
+    public function deletedIndex()
+    {
+        $projects = Project::onlyTrashed()->get();
+
+        return view('admin.projects.deleted.index', compact('projects'));
+    }
 }
