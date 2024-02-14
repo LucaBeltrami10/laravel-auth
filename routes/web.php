@@ -33,5 +33,6 @@ Route::middleware(['auth', 'verified'])
     ->prefix('admin')
     ->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index']);
+        Route::get('projects/deleted', [ProjectController::class, 'deletedIndex'])->name('projects.deleted');
         Route::resource('/projects', ProjectController::class);
     });
